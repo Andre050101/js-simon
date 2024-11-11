@@ -38,7 +38,7 @@ function visualizzaN(numeri){
     }
 }
 
-/*2) Countdown per nascondere numeri*/
+/*2.1) Countdown per nascondere numeri*/
 function countdown(durata, callback){
     let tempoRim = durata;
     const countdownEl = document.getElementById("countdown");
@@ -52,3 +52,26 @@ function countdown(durata, callback){
         }
     }, 1000);
 }
+
+/*2.2) Callback per nascondere numeri e mostrare modulo*/
+function mostraMod(){
+    document.getElementById("number-list").innerHTML = "I numeri sono stati nascosti! Inizia il gioco!";
+    document.getElementById("answer-form").classList.remove(d-none);
+}
+
+/*3) Creare campi di input e ascoltare risposte*/
+document.getElementById("answers-form").addEventListener("submit", verificaRisposte);
+
+/*4) Confronto tra risposte e numeri casuali già generati*/
+function confrontaRisposte(evento){
+    evento.preventDefault();
+    const inputs = document.querySelectorAll("#input-group input");
+    const risposte = Aray.from(inputs).map(input => parseInt(input.value, 10));
+    const risposteCorrette = risposte.filter(numero => randomNumbers.include(numero));
+    const message = document.getElementById("message");
+    if(risposteCorrette.length > 0)
+        message.textContent = `Hai indovinato ${numeriCorretti.length} numero/i: ${numeriCorretti.join(", ")}`;
+    else
+    message.textContent = "Non hai indovinato nessun numero.";
+}
+
