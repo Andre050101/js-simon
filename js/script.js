@@ -15,7 +15,6 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 */
 
 /*Funzione per numeri casuali*/
-
 function numeriCasuali(n, min, max){
     const numeri = [];
     while(numeri.length < n){
@@ -25,4 +24,16 @@ function numeriCasuali(n, min, max){
         }
     }
     return numeri;
+}
+
+/*Visualizzazione dei numeri generati in pagina*/
+function visualizzaN(numeri){
+    const listaN = document.getElementById("numbers-list");
+    listaN.innerHTML = "";
+    for(let i = 0; i <numeri.length; i++){
+        const n = numeri[i];
+        const li = document.createElement("li");
+        li.textContent = n;
+        listaN.appendChild(li);
+    }
 }
