@@ -5,3 +5,24 @@ Dopo 30 secondi i numeri scompaiono e appaiono invece 5 input in cui l'utente de
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 *NOTA*: non è importante l'ordine con cui l'utente inserisce i numeri, basta che ne indovini il più possibile.
 */
+
+/*Divisione compito in parti:
+1-Generare e mostrare i numeri casuali;
+2-Creazione countdown per nascondere i numeri;
+3-Creare campi input e ascoltare risposte;
+4-Confronto tra risposte e numeri casuali già generati;
+5-Riunire tutto in una funzione principale.
+*/
+
+/*Funzione per numeri casuali*/
+
+function numeriCasuali(n, min, max){
+    const numeri = [];
+    while(numeri.length < n){
+        const el = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(!numeri.includes(el)){
+            numeri.push(el);
+        }
+    }
+    return numeri;
+}
